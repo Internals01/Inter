@@ -1,0 +1,113 @@
+Using System;
+
+// Define the Resizable interface
+
+Interface Resizable
+
+{
+
+ Void ResizeWidth(int width);
+
+ Void ResizeHeight(int height);
+ }
+
+// Implement the Resizable interface in the Rectangle class
+
+Class Rectangle : Resizable
+
+{
+
+ Private int width;
+
+ Private int height;
+
+ Public Rectangle(int width, int height)
+
+ {
+
+ This.width = width;
+
+ This.height = height;
+
+ }
+
+ Public void Display()
+
+ {
+
+ Console.WriteLine($”Rectangle – Width: {width}, Height: {height}”);
+
+ }
+
+ Public void ResizeWidth(int newWidth)
+
+ {
+
+ Width = newWidth;
+
+ Console.WriteLine($”Resized width to {newWidth}”);
+
+ }
+
+ Public void ResizeHeight(int newHeight)
+
+ {
+
+ Height = newHeight;
+
+ Console.WriteLine($”Resized height to {newHeight}”);
+
+ }
+ Class Program
+
+{
+
+ Static void Main()
+
+ {
+
+ // Input for initial values
+
+ Console.WriteLine(“Enter the initial width of the rectangle:”);
+
+ Int initialWidth = Convert.ToInt32(Console.ReadLine());
+
+ Console.WriteLine(“Enter the initial height of the rectangle:”);
+
+ Int initialHeight = Convert.ToInt32(Console.ReadLine());
+
+ // Create an instance of Rectangle
+
+ Rectangle rectangle = new Rectangle(initialWidth, initialHeight);
+
+ // Display the original size of the rectangle
+
+ Console.WriteLine(“\nOriginal Size:”);
+
+ Rectangle.Display();
+
+ // Input for resized values
+
+ Console.WriteLine(“\nEnter the new width for resizing:”);
+
+ Int newWidth = Convert.ToInt32(Console.ReadLine());
+
+ Rectangle.ResizeWidth(newWidth);
+
+ Console.WriteLine(“Enter the new height for resizing:”);
+
+ Int newHeight = Convert.ToInt32(Console.ReadLine());
+
+ Rectangle.ResizeHeight(newHeight);
+
+ // Display the updated size of the rectangle
+
+ Console.WriteLine(“\nUpdated Size:”);
+
+ Rectangle.Display();
+
+ }
+
+}
+
+}
