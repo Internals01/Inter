@@ -1,0 +1,178 @@
+Using System;
+Class StackImplementation
+{
+ Static void Main()
+ {
+ // Create a stack instance
+ Stack stack = new Stack();
+ While (true)
+ {
+ Console.WriteLine(“Choose an option:”);
+ Console.WriteLine(“1. Push”);
+ Console.WriteLine(“2. Pop”);
+ Console.WriteLine(“3. Display”);
+ Console.WriteLine(“4. Exit”);
+ Int choice = GetChoice();
+ Switch (choice)
+ {
+ Case 1:
+ Console.WriteLine(“Enter the value to push:”);
+ Int valueToPush = GetValue();
+ Stack.Push(valueToPush);
+ Break;
+ Case 2:
+ Int poppedValue = stack.Pop();
+ If (poppedValue != -1)
+ Console.WriteLine($”Popped element: {poppedValue}”);
+
+ Break;
+
+ Case 3:
+
+ Stack.Display();
+
+ Break;
+
+ Case 4:
+
+ Console.WriteLine(“Exiting the program.”);
+
+ Environment.Exit(0);
+
+ Break;
+
+ Default:
+
+ Console.WriteLine(“Invalid choice. Please choose a valid option.”);
+
+ Break;
+
+ }
+
+ }
+
+ }
+
+ Static int GetChoice()
+
+ {
+
+ Int choice;
+
+ While (!int.TryParse(Console.ReadLine(), out choice))
+
+ {
+
+ Console.WriteLine(“Invalid input. Please enter a number.”);
+
+ }
+
+ Return choice;
+
+ }
+
+ Static int GetValue()
+
+ {
+ Int value;
+
+ While (!int.TryParse(Console.ReadLine(), out value))
+
+ {
+
+ Console.WriteLine(“Invalid input. Please enter a number.”);
+
+ }
+
+ Return value;
+
+ }
+
+}
+
+Class Stack
+
+{
+
+ Private const int MaxSize = 10;
+
+ Private int[] items;
+
+ Private int top;
+
+ Public Stack()
+
+ {
+
+ Items = new int[MaxSize];
+
+ Top = -1;
+
+ }
+
+ Public void Push(int value)
+
+ {
+
+ If (top == MaxSize – 1)
+
+ {
+
+ Console.WriteLine(“Stack overflow! Cannot push more elements.”);
+
+ Return;
+
+ }
+
+ Items[++top] = value;
+ Console.WriteLine($”Pushed element: {value}”);
+
+ }
+
+ Public int Pop()
+
+ {
+
+ If (top == -1)
+
+ {
+
+ Console.WriteLine(“Stack underflow! Cannot pop from an empty stack.”);
+
+ Return -1; // Return a sentinel value indicating underflow
+
+ }
+
+ Int poppedValue = items[top--];
+
+ Return poppedValue;
+
+ }
+
+ Public void Display()
+
+ {
+
+ If (top == -1)
+
+ {
+
+ Console.WriteLine(“Stack is empty.”);
+
+ Return;
+
+ }
+
+ Console.WriteLine(“Stack elements:”);
+
+ For (int I = top; I >= 0; i--)
+
+ {
+
+ Console.WriteLine(items[i]);
+
+ }
+
+ }
+
+}
