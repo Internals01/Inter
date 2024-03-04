@@ -1,0 +1,64 @@
+Using System;
+Abstract class Shape
+{
+ Public abstract double CalculateArea();
+ Public abstract double CalculatePerimeter();
+}
+Class Circle : Shape
+{
+ Private double radius;
+ Public Circle(double radius)
+ {
+ This.radius = radius;
+ }
+ Public override double CalculateArea()
+ {
+ Return Math.PI * radius * radius;
+ }
+ Public override double CalculatePerimeter()
+ {
+ Return 2 * Math.PI * radius;
+ }
+}
+Class Triangle : Shape
+{
+ Private double side1, side2, side3;
+ Public Triangle(double side1, double side2, double side3)
+ {
+ This.side1 = side1;
+ This.side2 = side2;
+ This.side3 = side3;
+ }
+ Public override double CalculateArea()
+ {
+ // Using Heron’s formula to calculate the area of a triangle
+ Double s = (side1 + side2 + side3) / 2;
+ Return Math.Sqrt(s * (s – side1) * (s – side2) * (s – side3));
+ }
+ Public override double CalculatePerimeter()
+ {
+ Return side1 + side2 + side3;
+ }
+}
+Class Program
+{
+Static void Main()
+ {
+ // Input for Circle
+ Console.WriteLine(“Enter the radius of the circle:”);
+ Double circleRadius = Convert.ToDouble(Console.ReadLine());
+ Circle circle = new Circle(circleRadius);
+ // Input for Triangle
+ Console.WriteLine(“Enter the side lengths of the triangle (separated by spaces):”);
+ String[] triangleSides = Console.ReadLine().Split(‘ ‘);
+ Double side1 = Convert.ToDouble(triangleSides[0]);
+ Double side2 = Convert.ToDouble(triangleSides[1]);
+ Double side3 = Convert.ToDouble(triangleSides[2]);
+ Triangle triangle = new Triangle(side1, side2, side3);
+ // Calculate and display the area and perimeter of each shape
+ Console.WriteLine(“\nCircle – Area: “ + circle.CalculateArea() + “, Perimeter: “ + 
+circle.CalculatePerimeter());
+ Console.WriteLine(“Triangle – Area: “ + triangle.CalculateArea() + “, Perimeter: “ + 
+triangle.CalculatePerimeter());
+ }
+}
