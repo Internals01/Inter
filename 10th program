@@ -1,0 +1,92 @@
+Using System;
+Class Shape
+{
+ Public virtual void Draw()
+ {
+ Console.WriteLine(“Drawing a generic shape.”);
+ }
+ Public virtual void Erase()
+
+ {
+
+ Console.WriteLine(“Erasing a generic shape.”);
+
+ }
+
+}
+
+Class Circle : Shape
+
+{
+
+ Public override void Draw()
+
+ {
+
+ Console.WriteLine(“Drawing a circle.”);
+
+ }
+
+ Public override void Erase()
+
+ {
+
+ Console.WriteLine(“Erasing a circle.”);
+
+ }
+
+}
+
+Class Triangle : Shape
+
+{
+
+ Public override void Draw()
+
+ {
+
+ Console.WriteLine(“Drawing a triangle.”);
+
+ }
+
+ Public override void Erase()
+
+ {
+
+ Console.WriteLine(“Erasing a triangle.”);
+
+ }
+ }
+Class Square : Shape
+{
+ Public override void Draw()
+ {
+ Console.WriteLine(“Drawing a square.”);
+ }
+ Public override void Erase()
+ {
+ Console.WriteLine(“Erasing a square.”);
+ }
+}
+Class Program
+{
+ Static void Main()
+ {
+ // Create instances of the derived classes
+ Shape circle = new Circle();
+ Shape triangle = new Triangle();
+ Shape square = new Square();
+ // Demonstrate polymorphism through the Draw and Erase methods
+ Console.WriteLine(“Demonstrating polymorphism:”);
+ DrawAndErase(circle);
+ DrawAndErase(triangle);
+ DrawAndErase(square);
+ }
+ Static void DrawAndErase(Shape shape)
+ {
+ Shape.Draw();
+ Shape.Erase();
+ Console.WriteLine();
+ }
+}
+ 
