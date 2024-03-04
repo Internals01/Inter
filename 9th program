@@ -1,0 +1,82 @@
+ Using System;
+
+Class Complex
+
+{
+
+ Public int real;
+
+ Public int img;
+
+ Public Complex()
+
+ {
+
+ This.real = 0;
+
+ This.img = 0;
+
+ }
+
+ Public Complex(int real, int img)
+
+ {
+
+ This.real = real;
+
+ This.img = img;
+
+ }
+
+ Public static Complex operator +(Complex Ob1, Complex Ob2)
+
+ {
+
+ Complex temp = new Complex();
+
+ Temp.real = Ob1.real + Ob2.real ;
+
+ Temp.img = Ob1.img + Ob2.img ;
+
+ Return temp;
+
+ }
+
+ Public void PrintComplexNumber()
+ Console.WriteLine(“{0} + {1}I”, real, img);
+
+ }
+
+}
+
+Class Program
+
+{
+
+ Static void Main()
+
+ {
+
+ Complex C1 = new Complex(5, 6);
+
+ Complex C2 = new Complex(7, 3);
+
+ Complex C3; 
+
+ C3 = C1 + C2;
+
+ Console.Write(“C1 : “);
+
+ C1.PrintComplexNumber(); 
+
+ Console.Write(“C2 : “);
+
+ C2.PrintComplexNumber();
+
+ Console.Write(“C3 : “);
+
+ C3.PrintComplexNumber();
+
+ }
+
+}
